@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  main-app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: main-app
+    ports: 
+      - "${APP_PORT}:8000"
+    command: "sh entrypoint.sh"
+    env_file:
+      - ../.env
