@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 
 from src.config import settings
 from src.database.models import Base
+from src.auth.models import User  # noqa: F401
 
 
 target_metadata = Base.metadata
