@@ -7,7 +7,7 @@ def setup_logging() -> None:
     Устанавливает настройки логгирования.
     """
     logging.basicConfig(
-        format="[{levelname}] [{asctime}] [{pathname}] {message}",
+        format="[{levelname}] [{asctime}] [{module}] {message}",
         style="{",
         stream=sys.stdout,
     )
