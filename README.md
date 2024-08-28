@@ -77,6 +77,26 @@ docker exec -it main-app poetry run pytest -vv /tests/
 
 ### Локально
 
+Создать виртуальное окружение:
+```
+python3 -m venv .venv
+```
+
+Активировать вирутальное окружение:
+```
+source .venv/bin/activate
+```
+
+Установить poetry:
+```
+pip install poetry
+```
+
+Установить зависимости:
+```
+poetry install --no-root
+```
+
 Создать файл виртуального окружения `.env`:
 ```
 cat .env.example >> .env
