@@ -27,4 +27,4 @@ async def test_not_authenticated_token_error(
     headers = {"Authorization": "bearer asdfasdf"}
     async with async_client as ac:
         response = await ac.get(AUTHENTICATED_URL, headers=headers)
-    assert response.status_code == 400, response.json()
+    assert response.status_code == 401, response.json()

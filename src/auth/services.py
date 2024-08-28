@@ -62,7 +62,7 @@ def get_payload(token: str) -> dict[str, str]:
         )
     except jwt.InvalidTokenError as e:
         logger.error(e)
-        raise TokenException(status_code=400, detail="Токен доступа невалиден")
+        raise TokenException
     return payload
 
 

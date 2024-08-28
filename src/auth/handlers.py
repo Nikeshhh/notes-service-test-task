@@ -19,10 +19,10 @@ async def login(
 ) -> TokenSchema:
     user = await user_service.get_by_username(form_data.username)
     if user is None:
-        raise LoginException(status_code=400, detail="Неправильный логин")
+        raise LoginException
 
     if not verify_password(form_data.password, user.hashed_password):
-        raise LoginException(status_code=400, detail="Неправильный пароль")
+        raise LoginException
 
     token = create_token(user.username)
 
