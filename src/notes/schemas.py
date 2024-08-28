@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 
 class NoteOutSchema(BaseModel):
+    """Схема для вывода заметки."""
+
     id: int
     author_id: int
 
@@ -13,4 +15,6 @@ class NoteOutSchema(BaseModel):
 
 
 class NoteInSchema(BaseModel):
+    """Схема для ввода заметки"""
+
     text: str

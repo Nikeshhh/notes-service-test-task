@@ -15,6 +15,9 @@ class YaSpellerService:
     CHECK_TEXT_URL = "/checkText"
 
     def __init__(self, client: AsyncClient) -> None:
+        """
+        :param client: Клиент для отправки http-запросов.
+        """
         self._options = settings.ya_speller_settings
         self._client = client
 
@@ -22,6 +25,7 @@ class YaSpellerService:
         """
         Валидирует переданный текст.
 
+        :param text: Текст для валидации.
         :returns: Валидированный текст.
         """
         data = {"text": text, "options": self._options}
@@ -83,6 +87,7 @@ class NoteService:
     ) -> None:
         """
         :param session: Сессия базы данных.
+        :param validation_service: Сервис для валидации текста заметки.
         """
         self._session = session
         self._validation_service = validation_service

@@ -54,6 +54,11 @@ class Settings(BaseSettings):
 
     @property
     def ya_speller_settings(self) -> int:
+        """
+        Собирает настройки Яндекс.Спеллера.
+
+        Docs: https://yandex.ru/dev/speller/doc/ru/reference/speller-options
+        """
         settings_sum = 0
         if self.IGNORE_DIGITS:
             settings_sum += 2

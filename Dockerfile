@@ -17,7 +17,8 @@ ADD pyproject.toml /src
 RUN pip install --upgrade pip
 RUN pip install poetry
 
-RUN poetry install --no-root --no-interaction --no-dev
+RUN poetry install --no-root --no-interaction
 
 COPY /src/ /src/
+COPY /tests/ /tests/
 COPY /docker_compose/entrypoint.sh /src/entrypoint.sh

@@ -17,6 +17,9 @@ async def get_note(
     note_service: Annotated[NoteService, Depends(get_note_service)],
     current_user: Annotated[User, Depends(get_current_user)],
 ) -> NoteOutSchema:
+    """
+    Получить заметку по ID.
+    """
     note = await note_service.get_by_id(id=note_id, user_id=current_user.id)
     return note
 
@@ -26,6 +29,9 @@ async def list_notes(
     note_service: Annotated[NoteService, Depends(get_note_service)],
     current_user: Annotated[User, Depends(get_current_user)],
 ) -> list[NoteOutSchema]:
+    """
+    Получить все заметки текущего пользователя.
+    """
     notes = await note_service.list_all(current_user.id)
     return notes
 
@@ -36,6 +42,9 @@ async def create_note(
     note_service: Annotated[NoteService, Depends(get_note_service)],
     current_user: Annotated[User, Depends(get_current_user)],
 ) -> NoteOutSchema:
+    """
+    Создать новую заметку.
+    """
     note = await note_service.create(text=note_data.text, user_id=current_user.id)
     return note
 
@@ -47,6 +56,9 @@ async def update_note(
     note_service: Annotated[NoteService, Depends(get_note_service)],
     current_user: Annotated[User, Depends(get_current_user)],
 ) -> NoteOutSchema:
+    """
+    Изменить текст существующей заметки.
+    """
     updated_note = await note_service.update(
         note_id=note_id, text=note_data.text, user_id=current_user.id
     )
@@ -59,4 +71,7 @@ async def delete_note(
     note_service: Annotated[NoteService, Depends(get_note_service)],
     current_user: Annotated[User, Depends(get_current_user)],
 ):
+    """
+    Удалить заметку.
+    """
     await note_service.delete_by_id(id=note_id, user_id=current_user.id)
