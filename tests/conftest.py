@@ -12,6 +12,8 @@ import pytest
 from tests.fixtures import *  # noqa: F403
 
 from src.database.connection import get_db
+from src.auth.models import User  # noqa: F401
+from src.notes.models import Note  # noqa: F401
 from src.database.models import Base
 from src.main import app
 from src.config import settings

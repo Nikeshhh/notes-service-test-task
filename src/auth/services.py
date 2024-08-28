@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from passlib.context import CryptContext
@@ -77,7 +78,7 @@ class UserService:
         """
         self._session = session
 
-    async def get_by_username(self, username: str) -> User:
+    async def get_by_username(self, username: str) -> Optional[User]:
         """
         Получает пользователя из базы данных по username.
 

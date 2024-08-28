@@ -11,7 +11,9 @@ from fastapi.security import OAuth2PasswordBearer
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 
-async def get_user_service(session: Annotated[AsyncSession, Depends(get_db)]):
+async def get_user_service(
+    session: Annotated[AsyncSession, Depends(get_db)],
+) -> UserService:
     """
     Зависимость для создания UserService.
     """
