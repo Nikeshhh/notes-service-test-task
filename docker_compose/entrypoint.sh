@@ -1,1 +1,2 @@
 poetry run alembic upgrade head && poetry run uvicorn main:app --host 0.0.0.0 --port 8000
+&& docker exec -it db psql -U postgresql -d notesdb -tc "SELECT 1 FROM pg_database WHERE datname = 'testdb'" | grep -q 1 || psql -U postgresql -d notesdb -c "CREATE DATABASE testdb"

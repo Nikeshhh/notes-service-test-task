@@ -10,7 +10,6 @@ services:
       - notes_postgres_data:/var/lib/postgresql/data
     env_file:
       - ../.env
-    command: psql -U postgresql -d notesdb -tc "SELECT 1 FROM pg_database WHERE datname = 'testdb'" | grep -q 1 || psql -U postgresql -d notesdb -c "CREATE DATABASE testdb"
 
 volumes:
   notes_postgres_data:
