@@ -57,6 +57,15 @@ make app
 docker compose -f docker_compose/database.yaml -f docker_compose/app.yaml up --build
 ```
 
+Создать тестовую базу данных:
+```
+make create_test_db
+```
+или
+```
+docker exec -it db psql -U postgresql -d notesdb -c "CREATE DATABASE testdb"
+```
+
 Запустить тесты:
 ```
 make test
@@ -103,6 +112,15 @@ make api-debug
 или
 ```
 uvicorn src.main:app --log-level=debug --reload
+```
+
+Создать тестовую базу данных:
+```
+make create_test_db
+```
+или
+```
+docker exec -it db psql -U postgresql -d notesdb -c "CREATE DATABASE testdb"
 ```
 
 Запустить тесты:

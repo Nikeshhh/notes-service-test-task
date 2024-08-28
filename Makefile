@@ -17,3 +17,7 @@ app:
 .PHONY: test
 test:
 	docker exec -it main-app poetry run pytest -vv /tests/
+
+.PHONY: create_test_db
+create_test_db:
+	docker exec -it db psql -U postgresql -d notesdb -c "CREATE DATABASE testdb"
