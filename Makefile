@@ -1,6 +1,6 @@
 .PHONY: api
 api:
-	docker compose -f docker_compose/app.yaml up --build
+	docker compose -f docker_compose/app.yaml --env-file .env up --build
 
 .PHONY: api-debug
 api-debug:
@@ -8,11 +8,11 @@ api-debug:
 
 .PHONY: db
 db:
-	docker compose -f docker_compose/database.yaml up --build
+	docker compose -f docker_compose/database.yaml --env-file .env up --build
 
 .PHONY: app
 app:
-	docker compose -f docker_compose/database.yaml -f docker_compose/app.yaml up --build
+	docker compose -f docker_compose/database.yaml -f docker_compose/app.yaml --env-file .env up --build
 
 .PHONY: test
 test:
