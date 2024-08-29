@@ -16,4 +16,4 @@ class User(BaseIdModel):
     username: Mapped[str] = mapped_column(unique=True)
     hashed_password: Mapped[str]
 
-    notes: Mapped[list["Note"]] = relationship(back_populates="author")  # type: ignore
+    notes: Mapped[list["Note"]] = relationship(back_populates="author")  # type: ignore  # noqa: F821

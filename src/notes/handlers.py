@@ -1,4 +1,5 @@
 from typing import Annotated
+
 from fastapi import APIRouter, Depends
 
 from src.auth.dependencies import get_current_user
